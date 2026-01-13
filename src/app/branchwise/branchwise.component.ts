@@ -19,8 +19,30 @@ export class BranchwiseComponent {
     branchList: any
     obj: any = {};
     stats:any = []
+    tenantDetails:any={}
+    branchDt=[
+  {
+    "id": "98874c19-03c5-439c-8280-61a615b4983b",
+    "name": "YZ",
+    "description": "Central administration and monitoring access."
+  },
+    {
+    "id": "98874c19-03c5-439c-8280-61a615b4983b",
+    "name": "ABC",
+    "description": "Central administration and monitoring access."
+  },
+   {
+    "id": "98874c19-03c5-439c-8280-61a615b4983b",
+    "name": "DEF",
+    "description": "Central administration and monitoring access."
+  }
+]
+  baseurl: any;
   constructor(private dashboardService: DashboardService, private router: Router, public masterService: MasterService) {
-     this.getBranchDD()
+      this.baseurl = this.masterService.getBaseUrl();
+    this.getBranchDD()
+     this.tenantDetails=JSON.parse(localStorage.getItem('tenant') || '{}');
+     this.tenantDetails.image=`${this.baseurl}${this.tenantDetails['image']}`
   }
   getBranchDD(){
     this.branchList=[]
@@ -28,7 +50,11 @@ export class BranchwiseComponent {
       if (res.status == true) {
         this.notyf.success(res.message || 'Dashboard data loaded successfully')
         this.stats = res.data.stats;
+        if (res.data.length<=2) {
+          this.branchList=[...res.data,...this.branchDt].slice(0, 3);
+        }else{
         this.branchList = res.data
+        }
       } else if (res.status == 'expired') {
         this.router.navigate(['login'])
       } else {

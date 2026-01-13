@@ -5,8 +5,14 @@
       <!-- Logo -->
       <div class="app-brand justify-content-center mt-5">
         <a href="/" class="app-brand-link gap-2">
-          <img src="/assets/img/logo/logo-quaere.png" width="250">
-
+          <!-- <img src="/assets/img/logo/logo-quaere.png" width="250"> -->
+<img
+                    [src]="tenantDetails?.image"
+                    alt="Document"
+                    width="250"
+                    height="auto"
+                    style="cursor: pointer"
+                  />
         </a>
 
       </div>
@@ -14,9 +20,13 @@
         <div class="text-center">
           <h4 style="    font-size: 32px;
     color: #005495;
-    font-weight: 900;">Quaere ETechnologies Pvt. Ltd.</h4>
+    font-weight: 900;">
+    {{tenantDetails?.companyName}}
+    <!-- Quaere ETechnologies Pvt. Ltd. -->
+  </h4>
           <p>
-            7th Floor, Cyber Tower, Pickup Road, Vibhuti Khand, Gomti Nagar, Lucknow-226010 (Uttar Pradesh)
+            {{tenantDetails?.companyAddress}}
+            <!-- 7th Floor, Cyber Tower, Pickup Road, Vibhuti Khand, Gomti Nagar, Lucknow-226010 (Uttar Pradesh) -->
           </p>
         </div>
       </div>
