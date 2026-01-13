@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   // apiUrl:  'http://192.168.23.11:3001/api/' //Arrhan
-   apiUrl:  'http://172.20.10.2:3002/api/', //self
+   apiUrl:  'http://192.168.18.166:3002/api/', //self
   //  apiUrl:  'http://192.168.23.13:3001/api/' //ABHISHEK sir
   //  apiUrl:  'http://192.168.23.13:3001/api/' //ABHISHEK sir
   //  apiUrl:   'https://gens.demoquaeretech.in/api/api/', //self
